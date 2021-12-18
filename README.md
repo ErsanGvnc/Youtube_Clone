@@ -8,7 +8,7 @@ In order to run your application, type:
 
 <!--START_SECTION:waka-->
 ```text
-  $ cd yourube_clone
+  $ cd youtube_clone
 ```
 <!--END_SECTION:waka-->
 
