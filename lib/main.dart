@@ -65,9 +65,11 @@ class _AnaSayfaState extends State<AnaSayfa> {
     //   //   return AnaSayfa();
     //   // }
     // }
-    return Normal();
-    // return Builder(
-    //   builder: (BuildContext context) => responsive(),
-    // );
+
+    //return Normal();
+
+    return Builder(
+      builder: (BuildContext context) => responsive(),
+    );
   }
 }

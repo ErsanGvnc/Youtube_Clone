@@ -1,6 +1,7 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, unused_element, sized_box_for_whitespace
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, unused_element, sized_box_for_whitespace, unused_local_variable, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/info/videocard.dart';
 
 class Normal extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class Normal extends StatefulWidget {
 }
 
 class _NormalState extends State<Normal> {
+  Color backcolor0 = Color.fromRGBO(33, 33, 33, 1);
   Color backcolor1 = Color.fromRGBO(33, 33, 33, 1);
   Color backcolor2 = Color.fromRGBO(33, 33, 33, 1);
   Color backcolor3 = Color.fromRGBO(33, 33, 33, 1);
@@ -81,6 +83,18 @@ class _NormalState extends State<Normal> {
   Color butonback16 = Color.fromRGBO(33, 33, 33, 1);
   Color buton16 = Color.fromRGBO(255, 255, 255, 0);
   Color butonmore16 = Color.fromRGBO(255, 255, 255, 0);
+
+  void _hover0(PointerEvent details) {
+    setState(() {
+      backcolor0 = Color.fromRGBO(55, 55, 55, 1);
+    });
+  }
+
+  void _unhover0(PointerEvent details) {
+    setState(() {
+      backcolor0 = Color.fromRGBO(33, 33, 33, 1);
+    });
+  }
 
   void _hover1(PointerEvent details) {
     setState(() {
@@ -648,6 +662,18 @@ class _NormalState extends State<Normal> {
 
   @override
   Widget build(BuildContext context) {
+    final screenheight = MediaQuery.of(context).size.height;
+    final screenwidth = MediaQuery.of(context).size.width;
+
+    int gc4 = 4;
+    int gc3 = 3;
+    int gc2 = 2;
+    int gc1 = 1;
+    // color: Color.fromRGBO(24, 24, 24, 1),
+    // width: 1680,
+    // height: 962,
+    print(screenwidth);
+
     return Scaffold(
       body: Container(
         child: SingleChildScrollView(
@@ -776,11 +802,12 @@ class _NormalState extends State<Normal> {
                         icon: Icon(Icons.notifications_none_outlined),
                         color: Colors.white,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.circle),
-                        color: Colors.white,
-                        iconSize: 30,
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 16,
+                        backgroundImage: NetworkImage(
+                          me[0]['profilePic'].toString(),
+                        ),
                       ),
                     ],
                   ),
@@ -792,11 +819,12 @@ class _NormalState extends State<Normal> {
                   Container(
                     color: Color.fromRGBO(33, 33, 33, 1),
                     width: 240,
-                    height: 962,
+                    height: screenheight,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Column(
                         children: [
+                          SizedBox(height: 10),
                           MouseRegion(
                             onHover: _hover1,
                             onExit: _unhover1,
@@ -843,6 +871,34 @@ class _NormalState extends State<Normal> {
                                     SizedBox(width: 20),
                                     Text(
                                       "Keşfet",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          MouseRegion(
+                            onHover: _hover0,
+                            onExit: _unhover0,
+                            child: InkWell(
+                              onTap: () {},
+                              child: Container(
+                                color: backcolor0,
+                                height: 45,
+                                child: Row(
+                                  children: [
+                                    SizedBox(width: 20),
+                                    Icon(
+                                      Icons.fast_rewind_outlined,
+                                      color: Colors.white,
+                                    ),
+                                    SizedBox(width: 20),
+                                    Text(
+                                      "Shorts",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1083,13 +1139,15 @@ class _NormalState extends State<Normal> {
                                 child: Row(
                                   children: [
                                     SizedBox(width: 20),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      backgroundColor: Colors.transparent,
+                                      radius: 13,
+                                      backgroundImage: NetworkImage(
+                                          "assets/images/free_code_camp.jpg"),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "Trap Nation",
+                                      "freeCodeCamp.org",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1118,13 +1176,15 @@ class _NormalState extends State<Normal> {
                                 child: Row(
                                   children: [
                                     SizedBox(width: 20),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      backgroundColor: Colors.transparent,
+                                      radius: 13,
+                                      backgroundImage: NetworkImage(
+                                          "assets/images/tesla.jpg"),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "EarthCam",
+                                      "Tesla",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1153,13 +1213,15 @@ class _NormalState extends State<Normal> {
                                 child: Row(
                                   children: [
                                     SizedBox(width: 20),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      backgroundColor: Colors.transparent,
+                                      radius: 13,
+                                      backgroundImage: NetworkImage(
+                                          "assets/images/nasa.png"),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "Nasa",
+                                      "NASA",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1188,13 +1250,15 @@ class _NormalState extends State<Normal> {
                                 child: Row(
                                   children: [
                                     SizedBox(width: 20),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      backgroundColor: Colors.transparent,
+                                      radius: 13,
+                                      backgroundImage: NetworkImage(
+                                          "assets/images/google.jpg"),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "Apple",
+                                      "Google",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1223,13 +1287,15 @@ class _NormalState extends State<Normal> {
                                 child: Row(
                                   children: [
                                     SizedBox(width: 20),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      backgroundColor: Colors.transparent,
+                                      radius: 13,
+                                      backgroundImage:
+                                          NetworkImage("assets/images/vox.jpg"),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "Tesla",
+                                      "Vox",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1251,13 +1317,15 @@ class _NormalState extends State<Normal> {
                                 child: Row(
                                   children: [
                                     SizedBox(width: 20),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      backgroundColor: Colors.transparent,
+                                      radius: 13,
+                                      backgroundImage: NetworkImage(
+                                          "assets/images/flutter.jpg"),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "Google",
+                                      "Flutter",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1286,13 +1354,15 @@ class _NormalState extends State<Normal> {
                                 child: Row(
                                   children: [
                                     SizedBox(width: 20),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
+                                    CircleAvatar(
+                                      backgroundColor: Colors.transparent,
+                                      radius: 13,
+                                      backgroundImage: NetworkImage(
+                                          "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60"),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "Flutter",
+                                      "William Lin",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1770,4054 +1840,525 @@ class _NormalState extends State<Normal> {
                       ),
                     ),
                   ),
-                  Stack(
-                    children: [
-                      Container(
-                        color: Color.fromRGBO(24, 24, 24, 1),
-                        //color: Colors.transparent,
-                        width: 1680,
-                        height: 962,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
+                  Flexible(
+                    child: Stack(
+                      children: [
+                        Container(
+                          color: Color.fromRGBO(24, 24, 24, 1),
+                          //color: Colors.transparent,
+                          width: screenwidth,
+                          height: screenheight,
+                          child: LayoutBuilder(
+                            builder: (context, dimens) {
+                              return GridView.builder(
+                                itemCount: videocard.length,
+                                //padding: EdgeInsets.fromLTRB(100, 80, 100, 25),
+
+                                // padding: if (screenwidth <= 1700) {
+                                //   EdgeInsets.fromLTRB(50, 80, 50, 25)
+                                // } else if (screenwidth <= 1550){
+                                //   EdgeInsets.fromLTRB(25, 80, 25, 25)
+                                // }
+                                // else {EdgeInsets.fromLTRB(100, 80, 100, 25)}
+
+                                padding: screenwidth <= 1700
+                                    ? EdgeInsets.fromLTRB(15, 80, 15, 25)
+                                    : EdgeInsets.fromLTRB(100, 80, 100, 25),
+
+                                scrollDirection: Axis.vertical,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10,
+                                  crossAxisCount: 4,
+                                  //childAspectRatio: 1.2,
+                                  mainAxisExtent: 300,
+
+                                  // crossAxisCount:
+                                  //     screenwidth <= 1870 ? gc3 : gc4,
+                                ),
+                                itemBuilder: (BuildContext context, index) {
+                                  // return Container(
+                                  //   color: Colors.red,
+                                  //   width: 200,
+                                  //   height: 150,
+                                  // );
+
+                                  return MouseRegion(
+                                    onHover: _butonaktif1,
+                                    onExit: _butonaktifdeil1,
+                                    child: InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        color: Colors.transparent,
+                                        // width: 350,
+                                        // height: 300,
+                                        child: Column(
+                                          children: [
+                                            Stack(
+                                              children: [
+                                                Container(
+                                                  // width: double.infinity,
+                                                  height: 200,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.transparent,
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: NetworkImage(
+                                                        videocard[index]
+                                                                ['profilePic']
+                                                            .toString(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                  right: 5,
+                                                  top: 5,
+                                                  child: Container(
+                                                    color: Colors.transparent,
+                                                    width: 30,
+                                                    height: 70,
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          color: butonback1,
+                                                          width: 30,
+                                                          height: 30,
+                                                          child: Icon(
+                                                            Icons
+                                                                .schedule_outlined,
+                                                            color: buton1,
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 10),
+                                                        Container(
+                                                          color: butonback1,
+                                                          width: 30,
+                                                          height: 30,
+                                                          child: Icon(
+                                                            Icons
+                                                                .playlist_play_outlined,
+                                                            color: buton1,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                  right: 5,
+                                                  bottom: 5,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Color.fromRGBO(
+                                                          0, 0, 0, 0.5),
+                                                    ),
+                                                    child: Center(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsets.all(3),
+                                                        child: Text(
+                                                          videocard[index]
+                                                                  ['videotime']
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(height: 10),
+                                            Container(
+                                              color: Colors.transparent,
+                                              //width: 350,
+                                              //height: 90,
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    color: Colors.transparent,
+                                                    // width: 50,
+                                                    // height: 90,
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        CircleAvatar(
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          radius: 17,
+                                                          backgroundImage:
+                                                              NetworkImage(
+                                                            videocard[index][
+                                                                    'profilePic']
+                                                                .toString(),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 10),
+                                                  Flexible(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          videocard[index]
+                                                                  ['videoname']
+                                                              .toString(),
+                                                          maxLines: 2,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 6),
+                                                        Text(
+                                                          videocard[index][
+                                                                  'channelname']
+                                                              .toString(),
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color:
+                                                                  Colors.grey),
+                                                        ),
+                                                        SizedBox(height: 3),
+                                                        Text(
+                                                          videocard[index]
+                                                                      ['views']
+                                                                  .toString() +
+                                                              " görüntüleme • " +
+                                                              videocard[index]
+                                                                      ['time']
+                                                                  .toString(),
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color:
+                                                                  Colors.grey),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
                           child: Container(
-                            color: Colors.transparent,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  bottom: 0, left: 100, right: 100, top: 80),
-                              child: Column(
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(33, 33, 33, 0.96),
+                              border: Border(
+                                top: BorderSide(
+                                  width: 0.5,
+                                  color: Colors.grey,
+                                ),
+                                bottom: BorderSide(
+                                  width: 0.5,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                            width: screenwidth,
+                            height: 60,
+                            child: Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      MouseRegion(
-                                        onHover: _butonaktif1,
-                                        onExit: _butonaktifdeil1,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback1,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton1,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback1,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton1,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore1,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
                                       ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif2,
-                                        onExit: _butonaktifdeil2,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback2,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton2,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback2,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton2,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore2,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
+                                      child: Center(
+                                        child: Text("Tümü"),
                                       ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif3,
-                                        onExit: _butonaktifdeil3,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback3,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton3,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback3,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton3,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore3,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif4,
-                                        onExit: _butonaktifdeil4,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback4,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton4,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback4,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton4,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore4,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                  SizedBox(height: 50),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      MouseRegion(
-                                        onHover: _butonaktif5,
-                                        onExit: _butonaktifdeil5,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback5,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton5,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback5,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton5,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore5,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Mix'ler",
+                                          style: TextStyle(
+                                            color: Colors.white,
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif6,
-                                        onExit: _butonaktifdeil6,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback6,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton6,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback6,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton6,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore6,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif7,
-                                        onExit: _butonaktifdeil7,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback7,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton7,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback7,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton7,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore7,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif8,
-                                        onExit: _butonaktifdeil8,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback8,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton8,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback8,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton8,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore8,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                  SizedBox(height: 50),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      MouseRegion(
-                                        onHover: _butonaktif9,
-                                        onExit: _butonaktifdeil9,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color: butonback9,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton9,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color: butonback9,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton9,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore9,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Müzik",
+                                          style: TextStyle(
+                                            color: Colors.white,
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif10,
-                                        onExit: _butonaktifdeil10,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color:
-                                                                  butonback10,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton10,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color:
-                                                                  butonback10,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton10,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore10,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif11,
-                                        onExit: _butonaktifdeil11,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color:
-                                                                  butonback11,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton11,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color:
-                                                                  butonback11,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton11,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore11,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif12,
-                                        onExit: _butonaktifdeil12,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color:
-                                                                  butonback12,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton12,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color:
-                                                                  butonback12,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton12,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore12,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                  SizedBox(height: 50),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      MouseRegion(
-                                        onHover: _butonaktif13,
-                                        onExit: _butonaktifdeil13,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color:
-                                                                  butonback13,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton13,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color:
-                                                                  butonback13,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton13,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore13,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Canlı",
+                                          style: TextStyle(
+                                            color: Colors.white,
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif14,
-                                        onExit: _butonaktifdeil14,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color:
-                                                                  butonback14,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton14,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color:
-                                                                  butonback14,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton14,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore14,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif15,
-                                        onExit: _butonaktifdeil15,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color:
-                                                                  butonback15,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton15,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color:
-                                                                  butonback15,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton15,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore15,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      MouseRegion(
-                                        onHover: _butonaktif16,
-                                        onExit: _butonaktifdeil16,
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            color: Colors.transparent,
-                                            width: 350,
-                                            height: 300,
-                                            child: Column(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      color: Colors.red,
-                                                      width: 350,
-                                                      height: 200,
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      top: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.0),
-                                                        ),
-                                                        width: 30,
-                                                        height: 70,
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              color:
-                                                                  butonback16,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .schedule_outlined,
-                                                                color: buton16,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                                height: 10),
-                                                            Container(
-                                                              color:
-                                                                  butonback16,
-                                                              width: 30,
-                                                              height: 30,
-                                                              child: Icon(
-                                                                Icons
-                                                                    .playlist_play_outlined,
-                                                                color: buton16,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                      right: 5,
-                                                      bottom: 5,
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Color.fromRGBO(
-                                                              0, 0, 0, 0.5),
-                                                        ),
-                                                        width: 30,
-                                                        height: 20,
-                                                        child: Center(
-                                                          child: Text(
-                                                            "5:28",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  color: Colors.transparent,
-                                                  width: 350,
-                                                  height: 90,
-                                                  child: Row(
-                                                    children: [
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 50,
-                                                        height: 90,
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  bottom: 0,
-                                                                  left: 0,
-                                                                  right: 0,
-                                                                  top: 0),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                decoration: BoxDecoration(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    shape: BoxShape
-                                                                        .circle),
-                                                                width: 35,
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 300,
-                                                        height: 90,
-                                                        child: Row(
-                                                          children: [
-                                                            Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 40,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "5 PROS 5 RESOLUTIONS #9 (CS:GO PROS POİNT OF VİEW)",
-                                                                    maxLines: 2,
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Text(
-                                                                        "Virre CSGO",
-                                                                        style: TextStyle(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            color: Colors.grey),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              1),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 250,
-                                                                  height: 25,
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  child: Text(
-                                                                    "150 B görüntüleme • 20 saat önce",
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Container(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 50,
-                                                              height: 100,
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .more_vert_outlined,
-                                                                    color:
-                                                                        butonmore16,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            )
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                  SizedBox(height: 50),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Minecraft Bedrock",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Aksiyon-macera oyunları",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Son yüklenenler",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "İzlenenler",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 15),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(55, 55, 55, 1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                    ),
+                                    //width: 60,
+                                    height: 30,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10,
+                                        top: 0,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Yeni öneriler",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: 0,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(33, 33, 33, 0.96),
-                            border: Border(
-                              top: BorderSide(
-                                width: 0.5,
-                                color: Colors.grey,
-                              ),
-                              bottom: BorderSide(
-                                width: 0.5,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ),
-                          width: 1680,
-                          height: 60,
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text("Tümü"),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Mix'ler",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Müzik",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Canlı",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Minecraft Bedrock",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Aksiyon-macera oyunları",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Son yüklenenler",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "İzlenenler",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(55, 55, 55, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                  //width: 60,
-                                  height: 30,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: 0,
-                                      left: 10,
-                                      right: 10,
-                                      top: 0,
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Yeni öneriler",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  // Container(
-                  //   color: Colors.blue,
-                  //   width: 1680,
-                  //   height: 962,
-                  //   child: SingleChildScrollView(
-                  //     scrollDirection: Axis.vertical,
-                  //     child: Stack(
-                  //       children: [
-                  //         Column(
-                  //           children: [
-                  //             Container(
-                  //               width: 1680,
-                  //               height: 1000,
-                  //               color: Colors.black,
-                  //             ),
-                  //             Container(
-                  //               width: 1680,
-                  //               height: 150,
-                  //               color: Colors.brown,
-                  //             ),
-                  //             Container(
-                  //               width: 1680,
-                  //               height: 150,
-                  //               color: Colors.cyan,
-                  //             ),
-                  //             Container(
-                  //               width: 1680,
-                  //               height: 500,
-                  //               color: Colors.green,
-                  //             ),
-                  //           ],
-                  //         ),
-                  //         Positioned(
-                  //           top: 0,
-                  //           child: Container(
-                  //             width: 1680,
-                  //             height: 150,
-                  //             color: Colors.brown,
-                  //           ),
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ],
