@@ -28,7 +28,8 @@ Your application code is in youtube_clone\lib\main.dart.
 
 
 
-https://user-images.githubusercontent.com/57798484/146638242-e83d0f19-ae9b-4b7f-bf52-9e1307c42988.mp4
+https://user-images.githubusercontent.com/57798484/156923099-2c0bc915-b22f-4127-938b-83fc210df999.mp4
+
 
 
 
