@@ -24,7 +24,7 @@ Your application code is in youtube_clone\lib\main.dart.
 # Assets/Videos
 
 
-![youtube_clone](https://user-images.githubusercontent.com/57798484/146638238-e2270bbf-093a-41df-984c-84dd87b7a94f.jpg)
+![youtube_clone](https://user-images.githubusercontent.com/57798484/156922686-287ff4d9-ad40-4027-9019-5d92f578386c.png)
 
 
 
