@@ -665,13 +665,6 @@ class _NormalState extends State<Normal> {
     final screenheight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
 
-    int gc4 = 4;
-    int gc3 = 3;
-    int gc2 = 2;
-    int gc1 = 1;
-    // color: Color.fromRGBO(24, 24, 24, 1),
-    // width: 1680,
-    // height: 962,
     print(screenwidth);
 
     return Scaffold(
@@ -703,7 +696,7 @@ class _NormalState extends State<Normal> {
                       ),
                       Image.asset(
                         "assets/images/logo.png",
-                        fit: BoxFit.contain,
+                        fit: BoxFit.cover,
                       ),
                       Spacer(),
                       Container(
@@ -1143,11 +1136,12 @@ class _NormalState extends State<Normal> {
                                       backgroundColor: Colors.transparent,
                                       radius: 13,
                                       backgroundImage: NetworkImage(
-                                          "assets/images/free_code_camp.jpg"),
+                                        videocard[1]['profilePic'].toString(),
+                                      ),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "freeCodeCamp.org",
+                                      "EarthCam",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1180,7 +1174,8 @@ class _NormalState extends State<Normal> {
                                       backgroundColor: Colors.transparent,
                                       radius: 13,
                                       backgroundImage: NetworkImage(
-                                          "assets/images/tesla.jpg"),
+                                        videocard[6]['profilePic'].toString(),
+                                      ),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
@@ -1217,7 +1212,8 @@ class _NormalState extends State<Normal> {
                                       backgroundColor: Colors.transparent,
                                       radius: 13,
                                       backgroundImage: NetworkImage(
-                                          "assets/images/nasa.png"),
+                                        videocard[4]['profilePic'].toString(),
+                                      ),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
@@ -1254,7 +1250,8 @@ class _NormalState extends State<Normal> {
                                       backgroundColor: Colors.transparent,
                                       radius: 13,
                                       backgroundImage: NetworkImage(
-                                          "assets/images/google.jpg"),
+                                        videocard[7]['profilePic'].toString(),
+                                      ),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
@@ -1290,8 +1287,9 @@ class _NormalState extends State<Normal> {
                                     CircleAvatar(
                                       backgroundColor: Colors.transparent,
                                       radius: 13,
-                                      backgroundImage:
-                                          NetworkImage("assets/images/vox.jpg"),
+                                      backgroundImage: NetworkImage(
+                                        videocard[3]['profilePic'].toString(),
+                                      ),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
@@ -1321,7 +1319,8 @@ class _NormalState extends State<Normal> {
                                       backgroundColor: Colors.transparent,
                                       radius: 13,
                                       backgroundImage: NetworkImage(
-                                          "assets/images/flutter.jpg"),
+                                        videocard[5]['profilePic'].toString(),
+                                      ),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
@@ -1358,11 +1357,12 @@ class _NormalState extends State<Normal> {
                                       backgroundColor: Colors.transparent,
                                       radius: 13,
                                       backgroundImage: NetworkImage(
-                                          "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60"),
+                                        videocard[0]['profilePic'].toString(),
+                                      ),
                                     ),
                                     SizedBox(width: 20),
                                     Text(
-                                      "William Lin",
+                                      "freeCodeCamp.org",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,
@@ -1906,7 +1906,7 @@ class _NormalState extends State<Normal> {
                                                       fit: BoxFit.cover,
                                                       image: NetworkImage(
                                                         videocard[index]
-                                                                ['profilePic']
+                                                                ['videoPic']
                                                             .toString(),
                                                       ),
                                                     ),

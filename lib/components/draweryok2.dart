@@ -711,11 +711,12 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                   backgroundColor: Colors.transparent,
                                   radius: 13,
                                   backgroundImage: NetworkImage(
-                                      "assets/images/free_code_camp.jpg"),
+                                    videocard[1]['profilePic'].toString(),
+                                  ),
                                 ),
                                 SizedBox(width: 20),
                                 Text(
-                                  "freeCodeCamp.org",
+                                  "EarthCam",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
@@ -747,8 +748,9 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                 CircleAvatar(
                                   backgroundColor: Colors.transparent,
                                   radius: 13,
-                                  backgroundImage:
-                                      NetworkImage("assets/images/tesla.jpg"),
+                                  backgroundImage: NetworkImage(
+                                    videocard[6]['profilePic'].toString(),
+                                  ),
                                 ),
                                 SizedBox(width: 20),
                                 Text(
@@ -784,8 +786,9 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                 CircleAvatar(
                                   backgroundColor: Colors.transparent,
                                   radius: 13,
-                                  backgroundImage:
-                                      NetworkImage("assets/images/nasa.png"),
+                                  backgroundImage: NetworkImage(
+                                    videocard[4]['profilePic'].toString(),
+                                  ),
                                 ),
                                 SizedBox(width: 20),
                                 Text(
@@ -821,8 +824,9 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                 CircleAvatar(
                                   backgroundColor: Colors.transparent,
                                   radius: 13,
-                                  backgroundImage:
-                                      NetworkImage("assets/images/google.jpg"),
+                                  backgroundImage: NetworkImage(
+                                    videocard[7]['profilePic'].toString(),
+                                  ),
                                 ),
                                 SizedBox(width: 20),
                                 Text(
@@ -858,8 +862,9 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                 CircleAvatar(
                                   backgroundColor: Colors.transparent,
                                   radius: 13,
-                                  backgroundImage:
-                                      NetworkImage("assets/images/vox.jpg"),
+                                  backgroundImage: NetworkImage(
+                                    videocard[3]['profilePic'].toString(),
+                                  ),
                                 ),
                                 SizedBox(width: 20),
                                 Text(
@@ -888,8 +893,9 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                 CircleAvatar(
                                   backgroundColor: Colors.transparent,
                                   radius: 13,
-                                  backgroundImage:
-                                      NetworkImage("assets/images/flutter.jpg"),
+                                  backgroundImage: NetworkImage(
+                                    videocard[5]['profilePic'].toString(),
+                                  ),
                                 ),
                                 SizedBox(width: 20),
                                 Text(
@@ -926,11 +932,12 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                   backgroundColor: Colors.transparent,
                                   radius: 13,
                                   backgroundImage: NetworkImage(
-                                      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60"),
+                                    videocard[0]['profilePic'].toString(),
+                                  ),
                                 ),
                                 SizedBox(width: 20),
                                 Text(
-                                  "William Lin",
+                                  "freeCodeCamp.org",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
@@ -1699,7 +1706,7 @@ class _DrawerYok2State extends State<DrawerYok2> {
                                                       fit: BoxFit.cover,
                                                       image: NetworkImage(
                                                         videocard[index]
-                                                                ['profilePic']
+                                                                ['videoPic']
                                                             .toString(),
                                                       ),
                                                     ),
