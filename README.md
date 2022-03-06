@@ -8,6 +8,17 @@ In order to run your application, type:
 
 <!--START_SECTION:waka-->
 ```text
+  <base href="https://ersangvnc.github.io/Youtube_Clone_Web/">
+  <!-- <base href="/"> -->
+  Change
+  <!-- <base href="https://ersangvnc.github.io/Youtube_Clone_Web/"> -->
+  <base href="/">
+```
+<!--END_SECTION:waka-->
+
+
+<!--START_SECTION:waka-->
+```text
   $ cd youtube_clone
 ```
 <!--END_SECTION:waka-->
