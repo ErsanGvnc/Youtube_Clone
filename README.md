@@ -6,6 +6,8 @@ A new Flutter project.
 
 In order to run your application, type:
 
+web/index.html
+
 <!--START_SECTION:waka-->
 ```text
   <base href="https://ersangvnc.github.io/Youtube_Clone_Web/">
